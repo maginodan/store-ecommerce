@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-// Reuse the cached connection in dev mode (important for Vercel/Next.js)
 const globalWithMongoose = global as typeof globalThis & {
   mongoose: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 };
@@ -24,9 +23,7 @@ export const connectToDatabase = async (
     cached.promise =
       cached.promise ||
       mongoose.connect(MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 10000, // 🛡️ Important for avoiding long buffering
+        serverSelectionTimeoutMS: 10000, // ✅ still valid and recommended
       });
 
     cached.conn = await cached.promise;
@@ -36,4 +33,3 @@ export const connectToDatabase = async (
     throw err;
   }
 };
-
