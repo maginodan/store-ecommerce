@@ -14,7 +14,7 @@ const settingSchema = new Schema<ISetting>(
       isMaintenanceMode: { type: Boolean, required: true, default: false },
       freeShippingMinPrice: { type: Number, required: true, default: 0 },
       defaultTheme: { type: String, required: true, default: 'light' },
-      defaultColor: { type: String, required: true, default: 'gold' },
+      defaultColor: { type: String, required: true, default: 'green' },
     },
     site: {
       name: { type: String, required: true },
