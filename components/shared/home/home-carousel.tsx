@@ -49,10 +49,10 @@ export function HomeCarousel({ items }: { items: ICarousel[] }) {
                       'text-xl md:text-6xl font-bold mb-4 text-primary  '
                     )}
                   >
-                    {t(`${item.title}`)}
+                    {item.title}
                   </h2>
                   <Button className='hidden md:block'>
-                    {t(`${item.buttonCaption}`)}
+                    {item.buttonCaption}
                   </Button>
                 </div>
               </div>
